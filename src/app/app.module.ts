@@ -12,6 +12,19 @@ import { WelcomePage } from '../pages/welcome/Welcome';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Login } from '../pages/login/login';
+import { AuthProvider } from '../providers/auth/auth';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { HttpModule } from '@angular/http';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+const firebaseConfig = {
+  apiKey: "AIzaSyDZcuwQEKbwqehg6wMFdR-V45kHu7JgqTk",
+    authDomain: "labwork-8-8abaf.firebaseapp.com",
+    databaseURL: "https://labwork-8-8abaf.firebaseio.com",
+    projectId: "labwork-8-8abaf",
+    storageBucket: "labwork-8-8abaf.appspot.com",
+    messagingSenderId: "380487223605"
+};
 
 
 @NgModule({
@@ -41,7 +54,9 @@ import { Login } from '../pages/login/login';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    FirebaseProvider
   ]
 })
 export class AppModule {}
